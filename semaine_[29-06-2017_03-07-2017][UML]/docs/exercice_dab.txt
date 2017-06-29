@@ -1,0 +1,5 @@
+exercice
+------------
+modeliser un distributeur de billet (DAB) de banque
+ faire le diagramme de cas d'utilisation
+ 
