@@ -67,6 +67,25 @@ decoupage
 		cela permet d'avoir une vue générale de l'utilisation
 		du systeme
 	
+	------------------------
+	un diagramme UMl n'a pas a etre exhaustif
+		-> illustrer les parties intéréssantes/nécessitant
+		une clarification du systeme
+		-> si un diagramme devient trop complexe, ne pas hesiter
+		a le separer en plusieur diagrammes
+	
+	un diagramme de cas d'utilisation est en général le point
+	d'entrée/demarrage de la modélisation d'un systeme
+	Il permet de clarifier ce que l'on veut fournir par le systeme
+	et de bien définir les frontieres du systeme
+	
+	pour les acteurs interagissant avec le systeme
+	la convention est de mettre les destiantaire/usager du systeme
+	a gauche de celui-ci, et les acteurs "secondaires" a droite
+	du systeme
+	
+	
+	
 	
 	
 	
