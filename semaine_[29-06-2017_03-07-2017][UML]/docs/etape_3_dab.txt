@@ -1,0 +1,5 @@
+ecrire 2 diagrammes de sequence du DAB
+
+1) un decrivant le scenario d'erreur ou la carte n'est pas reprise
+2) un decrivant le scenario d'erreur ou le code est erroné
+pour la troisieme fois

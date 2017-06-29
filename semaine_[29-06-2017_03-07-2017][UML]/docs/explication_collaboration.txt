@@ -1,0 +1,35 @@
+représentation dynamique du systeme
+------------------------------------
+pour représenter un scenario avec alternative
+on peut utiliser un diagramme d'activité
+cependant, celui-ci devient vite tres complexe
+
+on a 2 autres diagrammes très utile dans ce cas
+	- diagramme de sequence
+	- diagramme d'interaction/communication
+
+ces 2 diagrammes sont sémantiquement equivalent
+le point de vue n'est pas le même , mais ce qui est représenté
+est equivalent
+	-> le diagramme de sequence met l'accent sur l'enchainement
+	temporel d'un scenario
+	-> le diagramme de communication met l'accent sur quels "composant"
+	communique avec quel autre (interaction) et l'ordre des messages
+	
+ces diagramme, en général ne représente qu'un déroulement possible
+du scenario. le but n'est pas de représenter les choix
+mais un déroulement possible
+
+les diagrammes de sequence sont particulierement approprié si:
+	-> le nombre d'acteur est limité
+	-> on a un enchainement potentiellement long d'interaction messages
+	 (beaucoup d'aller retour)
+les diagramme de communication/inteaction son approprié
+	-> le nombre d'acteur est plus important
+	-> il y a moins d'aller retour et l'enchainement temporel
+	n'est pas le point d'intéret
+illustrer qui communique avec qui, et l'ordre des messages
+
+
+
+	
