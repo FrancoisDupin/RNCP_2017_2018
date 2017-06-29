@@ -1,0 +1,88 @@
+UML
+-------------------------
+unified modeling langage
+
+formalisation de bonne pratiques liées a la documentation
+et spécification/modelisation des projets informatique
+
+autre existant
+	--> Merise
+	--> SADT
+	--> et plein d'autres
+
+	UML est le plus répendu de très loin
+
+--->
+	UML est une norme/lanage permettant d'exprimer des specification
+	ou de les documenter
+		-> sous la forme de diagramme (en général)
+	UML est completement extensible et personnalisable
+	en vrais, il pourrait y avoir une infinité de type de diagramme
+	possible en UML
+	en pratique, un certin nombre de diagrammes sont commun(très utilisé)
+	
+	il est recommandé, si possible, de s'en tenir aux diagrammes
+	standard (pour la lisibilité)
+	
+	UML ---> code
+	code ---> UML
+	
+	1)generer du code (au moins le squelette) a partir d'UML
+	2)generer des diagrammes UML a partir de code existant
+	
+	1 --> UML est "maitre/patron de conception" de votre code/projet
+	2 --> UML a plus un role de documentation/spécification/explication
+	
+----------------------------------
+decoupage
+	- diagramme statique
+	- diagramme dynamiques
+	
+	un diagramme statique décrit un ascpet structurel du projet,
+	sans en décrire le fonctionnement/execution/deroulement dans
+	le temps
+		-> en quelque sorte une photo du projet suivant un certain angle
+		
+		
+	un diagramme dynamique décrit le fonctionnement/déroulement dans le
+	temps d'un des aspects du projets
+		-> en quelque sorte un "film" du projet en execution/deroulement
+		
+	les différents diagrammes
+	1) diagramme de cas d'utilisation (statique~)
+	2) diagramme de classe (statique)
+	3) diagramme d'objet (statique)
+	4,5) diagramme de composant/deploiement (statique)
+	6) diagramme d'activité(dynamique)
+	7) diagramme de sequence (dynamique)
+	8) diagramme de collaboration/interaction (dynamique)
+	9) diagramme d'etats/transition (statechart) (dynamique)
+	
+	les 9 diagrammes principaux
+	
+	diagramme ER ---> entity/relation
+	
+	commence modeliser/concevoir un systeme
+		-> diagramme de cas d'utilisation (use case)
+		cela permet d'avoir une vue générale de l'utilisation
+		du systeme
+	
+	
+	
+	
+	
+	
+	
+		
+		
+
+
+
+
+	
+	
+	
+	
+	
+	
+	
