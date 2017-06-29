@@ -2,4 +2,35 @@ exercice
 ------------
 modeliser un distributeur de billet (DAB) de banque
  faire le diagramme de cas d'utilisation
- 
+ 1) quels ont les utilisateurs/acteurs
+ 2) quels sont les cas d'utilisation
+ 3) qu'est ce qui est inclus dans notre systeme
+---------------
+1)
+	acteur utilisateur
+		- porteur de carte
+		- client banque
+	acteur support
+		- humain
+			- technicien
+			- convoyeur de fond
+		- non humain
+			- authautentificateur bancaire (visa/MC/etc...)
+			- SI Banque
+2) 
+	- retrait billet
+		- s'authentifier
+	- consultation solde
+	- depot cheque
+	- recharge distributeur
+	- depannage
+	- recupérer les cheques
+	- recupérer carte avalées
+
+3)
+	plutot hors du systeme
+		- argent
+		- ??? carte bancaire ???
+	dans notre systeme
+		- equipement (lecteur, ecran, clavier, stockage....)
+		- alimentation
