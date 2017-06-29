@@ -1,0 +1,8 @@
+3 grand types de scenario a definir
+	A) scenario nominal (tout se passe bien)
+	B) scenario alternatif (un changement dans le scenario a 
+	un point du deroulement, mais on aboutit au resultat voulu
+	C) scenario d'erreur (l'objectif du scenario n'est pas atteint)
+	
+on se concentre sur le retrait d'argent
+
