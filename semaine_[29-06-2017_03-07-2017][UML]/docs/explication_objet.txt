@@ -86,6 +86,14 @@ accesseur
 		this.timeMicroSecond = milli * 1000;
 	}
 	
+on peut aussi , dans la plupart des langage, interdire
+l'heritage d'une classe (en uml -> leaf , java final)
+
+en java , la classe String est final
+
+
+
+
 
 
 
