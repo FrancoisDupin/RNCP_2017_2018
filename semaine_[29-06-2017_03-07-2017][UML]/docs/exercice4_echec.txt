@@ -1,0 +1,9 @@
+modeliser un jeux d'echec 
+et la représentation(enregistrement d'une partie)
+-------------------------------------------------
+- pieces:  pion, tour, fou, cavalier, reine, roi
+- echiquier : 8*8 cases avec case noires/blanches
+- piece noire ou blanche, chacun jour alternativement
+- un coup, c'est deplacement d'une piece, avec potentiellement
+capture d'une autre.
+
