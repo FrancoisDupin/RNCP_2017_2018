@@ -7,3 +7,5 @@ et la représentation(enregistrement d'une partie)
 - un coup, c'est deplacement d'une piece, avec potentiellement
 capture d'une autre.
 
+les classes, heritage, relations, quelques méthodes/attribut
+
