@@ -1,0 +1,13 @@
+exercice etat-transition
+-------------------------
+modeliser une montre simplifiée
+1) mode affichage heure
+2) reglage de l'heure
+3) 2 boutons
+4) 1 bouton -> mode affichage <---> reglage
+5) 1 bouton permet de regler l'heure
+bonus
+6) le bouton reglage allume un retro eclairage en mode affichage
+de l'heure
+
+etat initial ---> affichage heure(lumiere eteinte)
