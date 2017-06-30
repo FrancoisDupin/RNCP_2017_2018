@@ -1,0 +1,13 @@
+exercice 5 (diagramme de classe)
+---------------------------------
+1) des compagnies aeriennes proposent différents vols
+2) un vol est ouvert/refermé à la réservation sur ordre de la compagnies
+3) un client peut réserver un ou plusieurs vols, pour des passager différents
+4) une réservation concerne un seul vol et un seul passager
+5) une réservation peut être annulée ou confirmée
+6) un vol a un aeroport de départ et un aeroport d'arrivé
+7) un vol a un jour et une heure de départ, et un jour et une
+heure d'arrivé
+8) un vol peut comporter des escales dans des aeroports
+9) une escale a une heure d'arrivé, et une heure de départ
+10) chaque aéroport dessert une ou plusieurs villes
