@@ -1,0 +1,96 @@
+diagramme de class, intro objet
+--------------------------------
+
+poo -> programmation orientée objet
+ -> variante par classe
+ 
+un objet quezaco?
+	- le regroupement, dans une entite, de donnée structurée
+	et des operations applicables dessus
+		-> etat : attribut/properties
+		-> operations: methodes/fonctions
+	
+pour utiliser des objets, on les définit via des classes
+	-> une classe, plan de fabrication d'un objet
+	-> un exemplaire d'objet, une instance
+	
+	exemple:
+		classe des Humain (nom, age)
+		instance:
+			(bob, 25) : Humain
+			(joe, 45) : Humain
+			...
+l'objet offre plusieurs facilitées:
+	- ca permet d'organiser/conceptualiser ce qu'on manipule
+	dans un programme (structuration)
+	- il ya des mecanisme de visibilité, et d'acces a l'etat
+	cela permet de "modulariser" le code, objet comme une
+	boite noire
+	- il y a le mecanisme d'heritage
+	factorisation du code: (moins de duplication)
+	Client herite de Humain, je n'ai pas besoin de redeclarer
+	ou redefinir ce qu'il y a deja dans humain pour client
+	sauf besoin spécifique
+	permet aussi une isolation choisie des details de ce
+	qu'on manipule (manipule humain, pas besoin de savoir
+	que c'est des clients)
+	
+	-> controle d'acces : encapsulation
+	-> isolation détails, specialisation: polymorphisme
+	
+heritage peut etre simple ou multiple
+	- heritage multiple est plus puissant/ouvert, mais
+	peut preter a confusion/augmente la complexité
+	- heritage simple est ... plus simple, mais offre
+	moins de possibilité que l'heritage multiple
+
+heritage multiple est utilisé pour 2 choses principales
+	- reutilisation de code partagé 
+	- isolation des détails spécifique
+interface : 
+	- permet de compenser la perte de l'heritage multiple
+	partiellement, l'aspect isolation des détails
+
+niveau de visibilité
+------------------------
+on a la possibilité de spécifier l'accessibilite/visibilité
+des attributs et operations dans une classe
+
+l'avantage est de permettre de n'exposer a l'exterieur de l'objet
+que ce qui est nécéssaire, réduisant ainsi le couplage potentiel
+avec d'autres partie du code
+
+en java
+		private		default 	protected		public
+		-----------------------------------------------
+classe		O			O			O				O
+package		X			O			O				O
+enfant		X			X			O				O
+autres		X			X			X				O
+				
+en uml
+	+ -> public
+	- -> private
+	# -> protected
+	
+accesseur
+	-> mettre en place des methodes permettant
+	d'ecrite et/ou lire dans un attribut privé
+	controle la cohérence de la valeur ecrite
+			- conversion, trigger
+	encapsulation d'un champ
+	
+	private long timeMicroSecond;
+	
+	public setMilliSecond(long milli) {
+		this.timeMicroSecond = milli * 1000;
+	}
+	
+
+
+
+
+
+
+	
+			
