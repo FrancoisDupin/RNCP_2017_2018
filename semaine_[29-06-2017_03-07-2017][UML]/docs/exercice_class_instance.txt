@@ -1,0 +1,25 @@
+exercice diagramme de classe et d'instance
+------------------------------------------
+représentation d'une université
+1) des etudiants (nom, prenom, email, noEtudiant)
+2) des cours (intitulé, capacite(place dispo), dateDebut, dateFin)
+3) des professeurs (nom, prenom, email, salaire)
+4) des matieres (intitulé (exemple: Java, Opera, kung-fu...)
+5) salles de cours (adresse, capacite, noSalle)
+
+etudiants n)---------(n cours
+cours n)----------(1 professeur
+Cours n)----------(1 matiere
+Salle n)----------(n cours
+
+A) Faire un diagramme de classe représentant ce systeme
+B) faire des diagrammes d'instance pour illustrer en particulier
+	1 - qu'un etudiant participe a de multiples cours, et un professeur aussi
+	2 - qu'un etudiant ne peut suivre 2 cours au même moment
+	3 - qu'un professeur ne peut assurer 2 cours au même moment
+	4 - que 2 cours ne peuvent avoir lieu dans la même salle
+	au même moment
+	
+
+
+
