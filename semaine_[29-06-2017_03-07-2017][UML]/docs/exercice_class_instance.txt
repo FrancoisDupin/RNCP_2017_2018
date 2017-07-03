@@ -8,6 +8,7 @@ représentation d'une université
 5) salles de cours (adresse, capacite, noSalle)
 
 etudiants n)---------(n cours
+
 cours n)----------(1 professeur
 Cours n)----------(1 matiere
 Salle n)----------(n cours

@@ -1,0 +1,32 @@
+interfaces
+-----------------------------
+ représente en quelque sorte un contrat
+	-> en objet, qu'est ce qu'un contrat???
+		-> les operations/methodes que doit fournir
+		un objet pour respecter le dit contrat
+	
+exemple:
+	contrat conteBancaire
+		-> deposer(somme), retirer(somme), consulter() -> solde
+		
+si un objet fournit ces methodes, il respecte ce contrat
+
+en, java, l'implementation d'un contrat est explicite
+ une classe implemente (herite) un contrat et l'indique
+ 
+dans quelques autres langage, cela peut etre implicite
+ on apelle cela le duck typing
+ la classe n'a pas besoin d'indiquer qu'elle implement un contrat
+ du moment qu'elle fournit les fonctions appropriées
+ 
+------------------------
+possibilité de modulariser le code, en passant des interfaces
+
+
+
+
+
+
+
+
+
