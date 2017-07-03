@@ -1,0 +1,12 @@
+diagramme d'instance/objet
+--------------------------
+Les diagrammes de classe sont très utile pour illustrer/specifier
+la structure "fixe" d'un systeme, mais souvent ne donne pas d'indiquation
+sur l'organisation et les relations entre objets en execution du
+même systeme.
+En particulier, cela permet de mettre en avant des liens et/ou
+contrainte non visible via un diagramme de classe
+
+c'est en quelque sorte un instantanné du systeme a un moment donné
+
+
