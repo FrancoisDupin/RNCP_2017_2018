@@ -3,7 +3,8 @@ exercice java structure de controle
 exercice 1:
 	saisir une serie de note (jusqu'a saisie valeur 0 -> terminé)
 	et afficher la notes max, min et la moyenne
-
+	conversion string -> double : Double.parseDouble()
+	
 exercice 2:
 	demander une taille entiere a l'utilisateur et dessiner triangle asciiart
 	
