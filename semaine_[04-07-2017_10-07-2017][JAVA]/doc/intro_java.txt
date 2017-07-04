@@ -1,0 +1,47 @@
+JAVA
+------------------------
+java est un langage crée en 1991 par sun
+
+java est un langage objet (intégré des lecons de C++)
+c'est un des premiers langage d'entreprise/rependu
+qui a l'epoque est managé (gestion mémoire) et s'execute
+sur une machine virtuel (jvm)
+
+but: langage indépendant de la plateforme
+	A) write once, tun everywhere (slogan de l'epoque)
+	l'execution via une vm permet de ne pas avoir
+	a recompiler le programme pour chaque plateforme
+	
+	autres  aspects, interface awt/swing (independance de l'interface
+	graphique)
+	
+	reputation a l'epoque de lenteur
+		-> peut etre le cas a l'epoque, plus maintenant
+		-> techno jvm a fortement évolué
+		-> le contexte materiel n'est plus le même
+		
+	java peut tout faire mais
+		-> pas forcement optimal pour la programmation bas niveau
+		-> pas forcement optimal dans certains cas particulier
+			-> par exemple, traitement massif d'images
+	actuellement, java est rapide
+	vous n'avez n'avez pas a gerer vous même la memoire
+		-> pas forcement le plus optimal
+		-> la plupart des developeur feront pire que la gestion
+		memoire de java si fait a la main
+	avantage, on se concentre sur le probleme a résoudre
+	
+	java est un langage objet comme C++, C#, D, python, ruby, javascript,
+			php (version "recente")
+	c'est un des langage objet les plus "canonique", sans dette
+	technique non objet
+	
+	A) java et javascript n'on quasi rien a voir ensemble
+	
+
+	
+	
+	
+	
+	
+	
