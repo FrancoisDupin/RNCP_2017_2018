@@ -1,0 +1,23 @@
+exercice java structure de controle
+------------------------------------
+exercice 1:
+	saisir une serie de note (jusqu'a saisie valeur 0 -> terminé)
+	et afficher la notes max, min et la moyenne
+
+exercice 2:
+	demander une taille entiere a l'utilisateur et dessiner triangle asciiart
+	
+	exemple: si saisie 5
+	*****
+	*--*
+	*-*
+	**
+	*
+	bonus si 2 trop facile --> dessiner losange
+	  *
+	 *-*
+	*---*
+	 *-*
+	  *
+	
+	
