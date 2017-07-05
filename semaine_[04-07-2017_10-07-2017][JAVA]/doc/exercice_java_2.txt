@@ -1,0 +1,49 @@
+exercice java 2
+-------------------------------------
+exercice A) (facile)
+	ecrire une fonction prenant un nombre variable
+	de doubles en parametre et renvoyant
+	le nombre de double > 0 
+	
+exercice B) (facile+)
+	ecrire une fonction prenant une chaine de caractere
+	en parametre et la renvoyant inversée: "bonjour" -> "ruojnob"
+	
+exercice C) (facile+)
+	ecrire une fonction renvoyant un boolean et prenant
+	une chaine de caractere en parametre qui renvoie
+	true si la chaine est un palindrome
+		"kayak" -> true
+		"bonjour" -> false
+		"touuot" -> true
+
+exercice D) (moyen)
+	ecrire une fonction prenant un texte en parametre
+	et affichant des caracteristiques de celui-ci, en particulier
+	-> la fréquence de chaque voyelle dans le texte (moyen)
+	-> le nombre de mots dans le texte (moyen++)
+	
+exercice E) (moyen+)
+	ecrire une fonction prenant un chiffre ne parametre
+	et l'affichant au format romain (limite 1 -> 999)
+	15 -> XV
+	112 -> CXII
+	
+exercice F) (difficile)
+	ecrire une fonction prenant deux chiffre en parametre
+		annee (> 1800)
+		mois  (1 ~ 12)
+	afficher le calendrier de ce mois la (sans utiliser la classe
+	Date ou Calendar)
+	
+	07/2017
+	
+	juillet 2017
+	LUN MAR MER JEU VEN SAM DIM
+	----------------------------
+						  1	  2
+	  3   4   5   6   7   8   9
+	 10  11  12  13 ...
+	
+	
+	
