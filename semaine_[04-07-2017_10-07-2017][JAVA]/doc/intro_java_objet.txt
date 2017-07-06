@@ -42,6 +42,22 @@ comme nom de package
 c'est comme ca que java arrive a retrouver/charge votre classe
 la première fois qu'il en a besoin
 
+----------------------------------------
+final permet d'interdire l'heritage d'une classe
+c'est plutot rare: exemple String
+
+bien sur, vous heritez des methodes statique du parent
+il n'y a pas de mecanisme d'ovveride de methode statique
+
+il choisit la methode statique en fonction du type "statique"
+
+Chat.methodestatiqueA
+
+
+
+
+
+
 
 
 
