@@ -1,0 +1,61 @@
+introduction objet java
+------------------------
+java est un langage fortement objet
+	a part les types natifs minuscule, tout le reste
+	en Java est Objet
+	-> un cas particulier (enumeration)
+	
+java est basé sur l'heritage de classe, heritage simple
+
+une des particularités de java, on a un mecanisme de chargement
+dynamique de classe. Chaque classe est dans son propre fichier
+source/compilé (très différent de C#).
+
+	un fichier source <----> une classe
+	
+on peut en fait déclarer plusieurs classes dans un fichier
+source, mais c'est un cas particulier
+
+Produit.java  ---javac ---> Produit.class -- java(jre) --> execution
+
+les classes en java sont assez standard, un état et des operations
+des attributs (variable d'instance)
+des methodes (fonction membre de l'objet)
+
+Package
+----------
+Java a un mecanisme de package pour organiser les classes d'un
+programme (similaire a des namespaces)
+
+un package:   nom1.nom2.....monN
+
+package com.eponge.bob  <- les classes seront placée dans ce package
+un package est en même temps un nom logique, et une localisation
+physique de la classe
+
+src/
+	com/eponge/bob/Produitjava
+
+ca veut dire que vous ne pouvez pas mettre n'importe quoi
+comme nom de package
+
+c'est comme ca que java arrive a retrouver/charge votre classe
+la première fois qu'il en a besoin
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
