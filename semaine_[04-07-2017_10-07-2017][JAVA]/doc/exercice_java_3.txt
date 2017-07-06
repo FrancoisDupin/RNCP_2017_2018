@@ -1,0 +1,32 @@
+exercice java 3 Objet
+-----------------------------
+ecrire une classe représentant un Article(blog)
+
+id			: int
+titre		: String
+corps		: String
+nomAuteur	: String
+rating		: double
+
+objet avec 2 constructeurs (par defaut et avec arguments)
+get/setter pour tous les champs
+toString() renvoyant la description textuelle de l'objet
+
+titre minimum 5 caractere et maximum 100
+corps minimum 5 caracteres et maximum 400
+nomAuteur entre 2 et 50 caracteres
+rating entre 0.0 et 5.0
+
+titre par defaut : "lorem"
+corps par defaut : "lorem ipsum"
+nomAuteur  par defaut : "homer"
+rating par defaut: 2.5
+
+bonus A , pouvoir configurer l'auteur par defaut via un fichier externe
+bonus B :
+constructeur ou methode statique permettant d'obtenir un nouvel
+article sans indiquer l'id, l'id est automatiquement fourni
+(a base d'un compteur)
+
+
+

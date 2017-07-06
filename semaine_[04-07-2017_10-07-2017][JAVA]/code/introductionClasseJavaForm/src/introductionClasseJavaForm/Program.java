@@ -11,30 +11,32 @@ import introductionClasseJavaForm.metier.Produit;
 public class Program {
 
 	public static void main(String[] args) throws FileNotFoundException {
-		System.out.println("bonjour!");
-		Produit p = new Produit(); //1, "lait de chameau equitable", 15.99, 0.5);
+		//System.out.println("bonjour!");
+		//Produit p = new Produit(); //1, "lait de chameau equitable", 15.99, 0.5);
 		/*
 		p.id = 1;
 		p.nom = "lait de chameau equitable";
 		p.prix = 15.99;
 		p.poids = 0.5;
 		*/
-		System.out.println(p.nom);
+//		System.out.println(p.nom);
+//		
+//		Produit p2 = new Produit(2, "tofu tout fou", -29.99, 1.0);
+//		/*p2.id = 2;
+//		p2.nom = "tofu tout fou";
+//		p2.prix = 29.99;
+//		p2.poids = 1.0;*/
+//		System.out.println(p2.nom);
+//		
+//		// pas de creation de nouvel objet/instance
+//		// p2 et p3 référence le même objet
+//		Produit p3 = p2;
+//		p3.setPrix(-39.99);
+//		System.out.println(p2.getPrix());
+//		
+//		p2.affiche();
 		
-		Produit p2 = new Produit(2, "tofu tout fou", -29.99, 1.0);
-		/*p2.id = 2;
-		p2.nom = "tofu tout fou";
-		p2.prix = 29.99;
-		p2.poids = 1.0;*/
-		System.out.println(p2.nom);
-		
-		// pas de creation de nouvel objet/instance
-		// p2 et p3 référence le même objet
-		Produit p3 = p2;
-		p3.setPrix(-39.99);
-		System.out.println(p2.getPrix());
-		
-		p2.affiche();
+		System.out.println("debut programme...");
 		
 		System.out.println(Client.getCompteurClient());
 		
