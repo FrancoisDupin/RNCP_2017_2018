@@ -1,0 +1,21 @@
+collections:
+-------------------
+
+List/tableau  -> tableau a acces aleatoire
+conteneur d'element, avec element positionné
+on accede ou on veut
+
+Map/Dictionnaire
+			-> cle : valeur
+retrouver rapidement un element via sa clé
+
+Set/ensemble
+	-> collection d'element sans position
+	enuméré, savoir si un element est présent/ajouter/enlever
+	mais il n'y a pas de position ou d'ordre
+	
+pile -> LIFO ou FILO, le dernier empiler est le premier depilé
+file (file attente)
+	 -> FIFO , le premier dans la file est le premier a en sortir
+	 
+
