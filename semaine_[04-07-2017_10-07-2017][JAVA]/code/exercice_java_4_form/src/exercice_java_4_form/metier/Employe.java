@@ -29,10 +29,7 @@ public class Employe extends Personne {
 		return "Employe [salaire=" + salaire + ", poste=" + poste + ", nom=" + getNom() 
 		+ ", prenom=" + getPrenom() + ", email=" + getEmail() + "]";
 	}
-	@Override
-	public String sauver() {
-		return "Employe;" + getAllFields();
-	}
+	
 	@Override
 	public String getAllFields() {
 		return super.getAllFields() + ";" + getSalaire() + ";" + getPoste();

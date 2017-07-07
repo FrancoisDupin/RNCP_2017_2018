@@ -28,10 +28,7 @@ public class Client extends Personne {
 				+ ", prenom=" + getPrenom() + ", email=" + getEmail() + "]";
 	}
 	
-	@Override
-	public String sauver() {
-		return "Client;" + getAllFields();
-	}
+	
 	@Override
 	public String getAllFields() {
 		return super.getAllFields() + ";" + getNoClient() + ";" + getSoldeCompte();

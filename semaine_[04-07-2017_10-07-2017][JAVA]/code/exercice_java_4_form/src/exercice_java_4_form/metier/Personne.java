@@ -25,7 +25,9 @@ public abstract class Personne {
 	}
 	
 	public abstract void contacter(String message);
-	public abstract String sauver();
+	public String sauver() {
+		return this.getClass().getSimpleName() + ";" + getAllFields();
+	}
 	
 	public String getAllFields() {
 		return getNom() + ";" + getPrenom() + ";" + getEmail();

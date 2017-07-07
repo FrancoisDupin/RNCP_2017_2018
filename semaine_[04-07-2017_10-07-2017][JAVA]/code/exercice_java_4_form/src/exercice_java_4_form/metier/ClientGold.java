@@ -18,10 +18,7 @@ public class ClientGold extends Client {
 				+ getSoldeCompte() + ", getNom()=" + getNom() + ", getPrenom()=" + getPrenom() + ", getEmail()="
 				+ getEmail() + "]";
 	}
-	@Override
-	public String sauver() {
-		return "ClientGold;" + getAllFields(); 
-	}
+	
 	@Override
 	public String getAllFields() {
 		return super.getAllFields() + ";" + getReduction();
