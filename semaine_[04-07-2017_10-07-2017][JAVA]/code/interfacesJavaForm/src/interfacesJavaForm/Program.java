@@ -3,13 +3,48 @@ package interfacesJavaForm;
 import java.util.Arrays;
 import java.util.Random;
 
-import interfacesJavaForm.metier.CompteSG;
-import interfacesJavaForm.metier.ICompteBancaire;
+import interfacesJavaForm.metier.*;
 
 public class Program {
 
 	public static void main(String[] args) {
-		ICompteBancaire c1;
+		
+		Vegetal[] vegetaux = new Vegetal[2];
+		Algue a1 = new Algue(3, "kelp", "verdatre");
+		vegetaux[0] = a1;
+		Dionaea dio1 = new Dionaea(7, "monstroplante", "sable");
+		vegetaux[1] = dio1;
+		
+		Animal[] animaux = new Animal[2];
+		Chat c1 = new Chat(7, "felix", "noir et blanc");
+		animaux[0] = c1;
+		Dauphin dau1 = new Dauphin(8, "flipper", 1.75);
+		animaux[1] = dau1;
+		
+		animaux[0].bouger();
+		animaux[1].crier();
+		
+		vegetaux[0].pousser();
+		vegetaux[1].pousser();
+		
+		IAquatique ia1 = dau1;
+		System.out.println(ia1.getTypeMillieux() + "," + ia1.getProfondeurMax());
+		ia1 = a1;
+		System.out.println(ia1.getTypeMillieux() + "," + ia1.getProfondeurMax());
+		
+		//ia1 = c1;
+		// je met dans la variable carnivore1
+		// l'objet Chat qu'on avait instancié précédement
+		/*ICarnivore carnivore1 = c1;
+		carnivore1.capturer();
+		carnivore1 = dau1;
+		*/
+		
+		nourrirCarnivore(dau1);
+		
+		
+		
+		/*ICompteBancaire c1;
 		CompteSG csg1 = new CompteSG(250, "8763437687");
 		
 		// c1 ne m'expose que les fonctionnalité générique
@@ -38,8 +73,12 @@ public class Program {
 		Arrays.sort(comptes);
 		for (ICompteBancaire ic : comptes)
 			System.out.println(ic);
-		
+		*/
 
+	}
+	
+	public static void nourrirCarnivore(ICarnivore ic) {
+		ic.capturer();
 	}
 	
 	
