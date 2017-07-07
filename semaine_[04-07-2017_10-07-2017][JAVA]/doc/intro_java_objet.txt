@@ -53,6 +53,69 @@ il choisit la methode statique en fonction du type "statique"
 
 Chat.methodestatiqueA
 
+-----------------------------------
+heritage de classe -> extends
+Chat extends Mammifere
+
+c'est l'enfant qui dit de quelle classe il herite
+si on ne precise rien, on herite d'Object
+
+si on fournit une méthode dans l'enfant qui a la même
+signature qu'une méthode dans le parent, on override
+cette méthode (automatiquement)
+on peut ajouter @override pour demander au compilateur
+de vérifier que c'est bien le cas
+
+bien sur, grace au polymorphisme, la bonne méthode
+sera appelée en fonction du veritable type de l'objet
+
+en java
+		private		default 	protected		public
+		-----------------------------------------------
+classe		O			O			O				O
+package		X			O			O				O
+enfant		X			X			O				O
+autres		X			X			X				O
+
+mot clé abstract pour déclarer une classe abstraite
+mot clé abstract devant une méthode abstraite
+
+au moins une méthode abstract  --implique--> classe abstract
+
+mot cle final:
+final permet d'interdire l'heritage d'une classe
+c'est plutot rare: exemple String
+devant une methode, interdit son override chez les descendants
+
+
+super est equivalent a this, mais denote mon parent
+au lieu de ma propre instance
+	
+	super(....) --> chainer vers un constructeur du parent
+!!! le chainage vers le constructeur du parent a toujours
+lieu d'une maniere ou d'une autre. Si vous omettez
+de préciser un chainage, chainage automatique vers le contructeur
+par defaut du parent
+une classe enfant se construit par addition/modification
+de la classe parent, il faut d'abord initialiser la partie
+parent, avant d'initialiser la partie enfant
+
+	super.methode() -> permet de specifier que l'on veut appeler
+	une méthode du parent (ou ancetre) et non la notre
+	
+	on ne peut pas court-circuiter son parent
+	
+	super.super.... NON
+	
+	
+
+
+
+
+
+
+
+
 
 
 

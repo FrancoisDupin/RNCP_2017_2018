@@ -1,0 +1,42 @@
+exercice java 4
+--------------------
+
+ecrire un programme avec ces classes (dans package metier):
+
+Personne
+---------
+nom
+prenom
+email
+getter/setter()
+toString()
+contacter() -> un message "je contact ....."
+
+Client  herite de Personne
+-----------
+soldeCompte
+noClient
+toString()
+contacter() -> un message "je contact ....."
+
+Employe herite de Personne
+---------
+salaire
+poste
+toString()
+contacter() -> un message "je contact ....."
+
+etape 1)
+atape 2)
+classe Personne Abstraite
+car on ajoute un méthode sauver() (potentiellement abstraite)
+	-> String (champ1;champ2;....)
+client/employe -> implementation
+
+Client;bob;eponge;bob@jhjkh;150.2;CLI4354354
+Employe;.....
+
+bonus -> gerer un repertoire Personne
+
+	
+
