@@ -1,0 +1,22 @@
+exercice java 5 (interfaces/generiques)
+---------------------------------------
+ecrire un programme avec un ensemble de classe
+
+	Figure
+	Triangle, Rectangle  extends Figure
+	
+	Label (affiche texte)
+	
+	exemple label "bonjour" --> *---------*
+								* bonjour *
+								*---------*
+	
+	toutes ces classe implementent une interface IAffichable
+	
+	IAffichable contient une methode display()
+	
+	j'ai une List de IAffichable 
+	que je peut afficher
+	
+	
+	
