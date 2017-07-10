@@ -1,0 +1,21 @@
+ecrire un convertisseur de temperature
+siaie une temperature en kelvin ou celsius ou farenheit
+il vous l'affiche dans les 3 unité en sorte
+
+a la saisie 
+	nombre suivi de c --> celsius
+	nombre suivi de k --> kelvin
+	nombre suivi de f --> farenheit
+	
+	plusieurs erreur a gérer
+		1) pas un nombre
+		2) unite inconnu
+		3) temperature invalide
+		
+exemple
+	10c
+	-> 10 degré celsius
+	   283.15 degré kelvin
+	   50 degré farenheit
+	   
+	   
