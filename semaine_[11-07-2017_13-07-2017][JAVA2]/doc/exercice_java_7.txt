@@ -1,0 +1,28 @@
+exercice interface repertoire
+--------------------------------
+ecrire une application swing permettant de consulter
+un repertoire de contacts
+
+Contact
+-------
+id							int
+nom							String
+prenom						String
+email						String
+genre (masculin/feminin)	int
+age							int
+gold						boolean
+referent					String	(nom commercial)
+
+via l'interface, je peu
+	A) filtrer en fonction du référant
+	B) trier en fonction de
+		id, nom, prenom, bonus(nom + prenom), email, age
+	C) bonus (case a cocher pour afficher ou pas les gold)
+	D) bonus(champ saisie pour filtrer > age saisie)
+	
+	E) bonus (sauvegarde dans un fichier)
+	F) (mega bonus) chargement depuis un fichier
+
+les lambda sont vos amis
+les actionCommand aussi
