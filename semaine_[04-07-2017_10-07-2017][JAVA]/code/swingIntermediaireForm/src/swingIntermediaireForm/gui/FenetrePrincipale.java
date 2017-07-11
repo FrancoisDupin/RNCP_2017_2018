@@ -2,7 +2,13 @@ package swingIntermediaireForm.gui;
 
 import java.awt.BorderLayout;
 import java.awt.HeadlessException;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.PrintWriter;
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
@@ -12,6 +18,10 @@ import javax.swing.DefaultListModel;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JList;
+import javax.swing.JMenu;
+import javax.swing.JMenuBar;
+import javax.swing.JMenuItem;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.event.ListSelectionEvent;
@@ -19,8 +29,13 @@ import javax.swing.event.ListSelectionListener;
 
 import swingIntermediaireForm.metier.Produit;
 
-public class FenetrePrincipale extends JFrame implements ListSelectionListener {
+public class FenetrePrincipale extends JFrame implements ListSelectionListener, ActionListener {
 
+	public static final String TRI_ID_COMMAND = "id_tri";
+	public static final String TRI_NOM_COMMAND = "nom_tri";
+	public static final String TRI_PRIX_COMMAND = "prix_tri";
+	public static final String TRI_POIDS_COMMAND = "poids_tri";
+	
 	private JPanel paneltri;
 	private JList<String> listeCategories;
 	
@@ -37,7 +52,8 @@ public class FenetrePrincipale extends JFrame implements ListSelectionListener {
 	
 	// variable stockant le lambda qui servira a filter les produits par categorie
 	private Predicate<Produit> currentFilter;
-
+	// variable stockant le lambda qui servira a trier les produits
+	private Comparator<Produit> currentSort;
 	
 	
 	public FenetrePrincipale() throws HeadlessException {
@@ -107,12 +123,94 @@ public class FenetrePrincipale extends JFrame implements ListSelectionListener {
 		*/
 		// je choisi un filtre
 		currentFilter = Produit.getFilter("toutes");
+		// je choisi un tri
+		currentSort = Produit.ID_SORT;
+		
 		// je rafraichis la liste affichée
 		refreshList();
 		
 		// ecouter la liste des categories
 		listeCategories.addListSelectionListener(this);
 		
+		triNomBt.addActionListener(this);
+		triNomBt.setActionCommand(TRI_NOM_COMMAND);
+		triPoidsBt.addActionListener(this);
+		triPoidsBt.setActionCommand(TRI_POIDS_COMMAND);
+		triPrixBt.addActionListener(this);
+		triPrixBt.setActionCommand(TRI_PRIX_COMMAND);
+		
+		// creation d'un menu
+		
+		JMenuBar barmenu = new JMenuBar();
+		JMenu menufile = new JMenu("fichier");
+		JMenu menuTri = new JMenu("trier");
+		barmenu.add(menufile);
+		barmenu.add(menuTri);
+		
+		JMenuItem saveFile = new JMenuItem("sauvegarder");
+		menufile.add(saveFile);
+		
+		JMenuItem triIdMenu = new JMenuItem("trier par id");
+		JMenuItem triPrixMenu = new JMenuItem("trier par prix");
+		JMenuItem triPoidsMenu = new JMenuItem("trier par poids");
+		JMenuItem triNomMenu = new JMenuItem("trier par nom");
+		menuTri.add(triIdMenu);
+		menuTri.add(triPrixMenu);
+		menuTri.add(triPoidsMenu);
+		menuTri.add(triNomMenu);
+		
+		triIdMenu.addActionListener(this);
+		triIdMenu.setActionCommand(TRI_ID_COMMAND);
+		triPrixMenu.addActionListener(this);
+		triPrixMenu.setActionCommand(TRI_PRIX_COMMAND);
+		triPoidsMenu.addActionListener(this);
+		triPoidsMenu.setActionCommand(TRI_POIDS_COMMAND);
+		triNomMenu.addActionListener(this);
+		triNomMenu.setActionCommand(TRI_NOM_COMMAND);
+		
+		
+		setJMenuBar(barmenu);
+		
+		saveFile.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				File f = new File("catalogue.csv");
+				try {
+					final PrintWriter writer = new PrintWriter(f);
+					produitFullData.stream()
+								   .forEach(p -> writer.println(p.toCsvLine()));
+					// IMPORTANT, il FAUT fermer le printwriter a la fin
+					// sinon, rique que les données ne soient pas correctement ecrite
+					writer.close();
+				} catch (FileNotFoundException e1) {
+					JOptionPane.showMessageDialog(null,
+												 "could not save file",
+												 "error",
+												 JOptionPane.ERROR_MESSAGE);
+					e1.printStackTrace();
+				}
+				JOptionPane.showMessageDialog(null,
+											  "file saved!!!",
+											  "operation complete",
+											  JOptionPane.INFORMATION_MESSAGE);
+			}
+		});
+		
+		
+	}
+	
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		/*		if (e.getSource() == triNomBt) {}*/
+		switch(e.getActionCommand()) {
+			case TRI_ID_COMMAND: currentSort = Produit.ID_SORT; break;
+			case TRI_NOM_COMMAND: currentSort = Produit.NOM_SORT; break;
+			case TRI_PRIX_COMMAND: currentSort = Produit.PRIX_SORT; break;
+			case TRI_POIDS_COMMAND: currentSort = Produit.POIDS_SORT; break;
+			default: currentSort = Produit.ID_SORT; break;
+		}
+		refreshList();
 	}
 	
 	private void refreshList() {
@@ -120,7 +218,7 @@ public class FenetrePrincipale extends JFrame implements ListSelectionListener {
 		
 		produitFullData.stream()
 			.filter(currentFilter)
-			.sorted((p1, p2) -> Double.compare(p1.getPrix(), p2.getPrix()))
+			.sorted(currentSort)
 			.forEach(p -> produitsVisiblesData.addElement(p));
 	}
 
@@ -143,6 +241,8 @@ public class FenetrePrincipale extends JFrame implements ListSelectionListener {
 		}
 		refreshList();*/
 	}
+
+
 	
 	
 

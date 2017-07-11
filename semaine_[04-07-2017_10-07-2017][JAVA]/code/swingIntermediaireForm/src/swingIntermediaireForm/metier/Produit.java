@@ -1,5 +1,6 @@
 package swingIntermediaireForm.metier;
 
+import java.util.Comparator;
 import java.util.function.Predicate;
 
 public class Produit {
@@ -14,6 +15,18 @@ public class Produit {
 		else
 			return  p -> p.getCategorie().equals(categorieName);
 	}
+	
+	public static final Comparator<Produit> ID_SORT
+				= (p1, p2) -> Integer.compare(p1.getId(), p2.getId());
+	public static final Comparator<Produit> NOM_SORT
+				= (p1, p2) -> p1.getNom().compareTo(p2.getNom());
+	public static final Comparator<Produit> PRIX_SORT
+				= (p1, p2) -> Double.compare(p1.getPrix(), p2.getPrix());
+	public static final Comparator<Produit> POIDS_SORT
+				= (p1, p2) -> Double.compare(p1.getPoids(), p2.getPoids());
+
+			
+	
 	/*
 	public static final Predicate<Produit> ALL_CATEGORIES_FILTER 
 										= p -> true;
@@ -61,7 +74,15 @@ public class Produit {
 				+ "]";
 	}
 
-	
+	public String toCsvLine() {
+		StringBuilder sb = new StringBuilder();
+		sb.append(getClass().getName()).append(';')
+		  .append(getId()).append(';')
+		  .append(getNom()).append(';')
+		  .append(getPrix()).append(';')
+		  .append(getPoids());
+		return sb.toString();
+	}
 	
 	
 	
