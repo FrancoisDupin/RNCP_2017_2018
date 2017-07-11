@@ -3,7 +3,9 @@ package swingIntermediaireForm.gui;
 import java.awt.BorderLayout;
 import java.awt.HeadlessException;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.function.Predicate;
+import java.util.stream.Collectors;
 
 import javax.swing.BoxLayout;
 import javax.swing.DefaultListModel;
@@ -45,6 +47,17 @@ public class FenetrePrincipale extends JFrame implements ListSelectionListener {
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		setLayout(new BorderLayout());
 		
+		produitFullData = new ArrayList<>();
+		produitFullData.add(new Produit(1, "steak de lama", 49.99, 1.2, "viandes"));
+		produitFullData.add(new Produit(2, "tofu tout fou", 29.99, 0.750, "fromages"));
+		produitFullData.add(new Produit(3, "quinoa des andes", 39.99, 1.0, "cereales"));
+		produitFullData.add(new Produit(4, "miel des carpathes", 59.99, 1.0, "divers"));
+		produitFullData.add(new Produit(5, "oignon rouges", 9.99, 1.1, "legumes"));
+		produitFullData.add(new Produit(6, "brebis des alpes", 15.99, 0.35, "fromages"));
+		produitFullData.add(new Produit(7, "boeuf yogique", 69.99, 0.75, "viandes"));
+		produitFullData.add(new Produit(8, "ble sans gluten", 27.50, 2.0, "cereales"));
+		produitFullData.add(new Produit(9, "poulet plein air", 17.50, 1.8, "viandes"));
+		
 		// layout de la partie de nord de la fenetre avec les boutons de tri
 		paneltri = new JPanel();
 		// organisation horizontale de mes boutons dans cette partie nord (panelTri)
@@ -61,10 +74,18 @@ public class FenetrePrincipale extends JFrame implements ListSelectionListener {
 		// ajout du panel en haut de la fenetre principale
 		add(paneltri, BorderLayout.NORTH);
 		
+		List<String> categorieNames =
+				produitFullData.stream()			// le flux de produit
+							   .map(p -> p.getCategorie()) // transformation en flux de categorie
+							   .distinct()
+							   .collect(Collectors.toList()); // recupération dans une liste
+		categorieNames.add("toutes");
+		
+		
+		
 		// partie ouest, liste des categorie pour filtrage
-		listeCategories = new JList<>(new String[] {
-				"viandes", "cereales", "fromages", "legumes", "divers", "toutes"
-		});
+		listeCategories = new JList<>(categorieNames.toArray(new String[0]));
+		
 		// j'ajoute ma liste dans un panel defilant a l'ouest de la fenetre principale
 		add(new JScrollPane(listeCategories), BorderLayout.WEST);
 		
@@ -74,17 +95,7 @@ public class FenetrePrincipale extends JFrame implements ListSelectionListener {
 		
 		add(new JScrollPane(produitsVisibles));
 		
-		produitFullData = new ArrayList<>();
 		
-		produitFullData.add(new Produit(1, "steak de lama", 49.99, 1.2, "viandes"));
-		produitFullData.add(new Produit(2, "tofu tout fou", 29.99, 0.750, "fromages"));
-		produitFullData.add(new Produit(3, "quinoa des andes", 39.99, 1.0, "cereales"));
-		produitFullData.add(new Produit(4, "miel des carpathes", 59.99, 1.0, "divers"));
-		produitFullData.add(new Produit(5, "oignon rouges", 9.99, 1.1, "legumes"));
-		produitFullData.add(new Produit(6, "brebis des alpes", 15.99, 0.35, "fromages"));
-		produitFullData.add(new Produit(7, "boeuf yogique", 69.99, 0.75, "viandes"));
-		produitFullData.add(new Produit(8, "ble sans gluten", 27.50, 2.0, "cereales"));
-		produitFullData.add(new Produit(9, "poulet plein air", 17.50, 1.8, "viandes"));
 		
 		
 	/*	// copie la liste integrale des produits dans les produits a afficher
@@ -95,7 +106,7 @@ public class FenetrePrincipale extends JFrame implements ListSelectionListener {
 						.forEach(p -> produitsVisiblesData.addElement(p));
 		*/
 		// je choisi un filtre
-		currentFilter = Produit.ALL_CATEGORIES_FILTER;
+		currentFilter = Produit.getFilter("toutes");
 		// je rafraichis la liste affichée
 		refreshList();
 		
@@ -115,7 +126,14 @@ public class FenetrePrincipale extends JFrame implements ListSelectionListener {
 
 	@Override
 	public void valueChanged(ListSelectionEvent e) {
-		switch(listeCategories.getSelectedValue()) {
+		String choix = listeCategories.getSelectedValue();
+		if (choix == null)
+			currentFilter = Produit.getFilter("toutes");
+		else
+			currentFilter = Produit.getFilter(choix);
+		refreshList();
+		
+		/*switch(listeCategories.getSelectedValue()) {
 			case "viandes"	: currentFilter = Produit.VIANDES_CATEGORIES_FILTER; break;
 			case "legumes"	: currentFilter = Produit.LEGUMES_CATEGORIES_FILTER; break;
 			case "cereales" : currentFilter = Produit.CEREALES_CATEGORIES_FILTER; break;
@@ -123,7 +141,7 @@ public class FenetrePrincipale extends JFrame implements ListSelectionListener {
 			case "divers"	: currentFilter = Produit.DIVERS_CATEGORIES_FILTER; break;
 			default 		: currentFilter = Produit.ALL_CATEGORIES_FILTER; break;
 		}
-		refreshList();
+		refreshList();*/
 	}
 	
 	

@@ -3,7 +3,18 @@ package swingIntermediaireForm.metier;
 import java.util.function.Predicate;
 
 public class Produit {
-	
+
+	// le generateur de lambda permettant de filtrer les produits
+	// en fonction d'une valeur de categorie
+	// renvoie un nouveau lambda quand invokée paramétré en fonction
+	// du nom de categorie voulue comme filtre
+	public static Predicate<Produit> getFilter(final String categorieName) {
+		if (categorieName.equals("toutes"))
+			return p -> true;
+		else
+			return  p -> p.getCategorie().equals(categorieName);
+	}
+	/*
 	public static final Predicate<Produit> ALL_CATEGORIES_FILTER 
 										= p -> true;
 	public static final Predicate<Produit> VIANDES_CATEGORIES_FILTER 
@@ -16,7 +27,7 @@ public class Produit {
 										= p -> p.getCategorie().equals("legumes");
 	public static final Predicate<Produit> DIVERS_CATEGORIES_FILTER 
 										= p -> p.getCategorie().equals("divers");
-	
+	*/
 	
 	private int id;
 	private String nom;
