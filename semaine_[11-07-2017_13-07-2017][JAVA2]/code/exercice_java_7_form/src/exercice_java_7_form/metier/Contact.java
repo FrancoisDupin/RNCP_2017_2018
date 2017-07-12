@@ -57,6 +57,54 @@ public class Contact {
 				+ ", age=" + age + ", clientGold=" + clientGold + ", referent=" + referent + "]";
 	}
 
+	public String toCSVLine() {
+		StringBuilder sb = new StringBuilder();
+		sb.append(getClass().getSimpleName()).append(';')
+		  .append(getId()).append(';')
+		  .append(getNom()).append(';')
+		  .append(getPrenom()).append(';')
+		  .append(getEmail()).append(';')
+		  .append(getGenre()).append(';')
+		  .append(getAge()).append(';')
+		  .append(isClientGold()).append(';')
+		  .append(getReferent());
+
+		return sb.toString();
+	}
+	
+	public static class ContactFormatException extends RuntimeException {
+
+		public ContactFormatException(String message) {
+			super(message);
+		}
+
+		public ContactFormatException(String message, Throwable cause) {
+			super(message, cause);
+		}
+		
+	}
+	
+	public static Contact loadFromCsv(String line) throws ContactFormatException 
+	{
+		String[] values = line.split(";");
+		if (values.length != 9) {
+			throw new ContactFormatException("format csv du contact invalide, pas le bon nombre de champs");
+		}
+		try {
+			return new Contact(Integer.parseInt(values[1]),
+								values[2],
+								values[3],
+								values[4],
+								values[5].charAt(0),
+								Integer.parseInt(values[6]),
+								Boolean.parseBoolean(values[7]),
+								values[8]);
+		} catch (Exception ex) {
+			throw new ContactFormatException("format d'un champ du contact invalide", ex);
+		}
+	}
+	
+	
 	public static Comparator<Contact> getTri(String champ) {
 		switch(champ) {
 			case TRI_ID: return (c1, c2) -> Integer.compare(c1.getId(), c2.getId());

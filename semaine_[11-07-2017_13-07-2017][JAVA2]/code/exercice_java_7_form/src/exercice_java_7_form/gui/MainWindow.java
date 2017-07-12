@@ -5,19 +5,25 @@ import java.awt.Color;
 import java.awt.HeadlessException;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Comparator;
 import java.util.List;
+import java.util.Scanner;
 import java.util.function.Predicate;
 
 import javax.swing.BoxLayout;
 import javax.swing.DefaultListModel;
+import javax.swing.JButton;
 import javax.swing.JCheckBox;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JList;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextField;
@@ -27,11 +33,16 @@ import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 
 import exercice_java_7_form.metier.Contact;
+import exercice_java_7_form.metier.Contact.ContactFormatException;
 
 public class MainWindow extends JFrame implements ActionListener,
 												  ListSelectionListener,
 												  DocumentListener {
 
+	public static final String SAVE_COMMAND = "sauver";
+	public static final String LOAD_COMMAND = "charger";
+	public static final String CONTACT_FILENAME = "contacts.csv";
+	
 	
 	
 	private JPanel panelHaut;
@@ -54,6 +65,8 @@ public class MainWindow extends JFrame implements ActionListener,
 	private JTextField saisieAge;
 	
 	private JComboBox<String> choixTri;
+	private JButton btSave;
+	private JButton btLoad;
 	
 	
 	
@@ -67,7 +80,7 @@ public class MainWindow extends JFrame implements ActionListener,
 		
 		// preparation données
 		fullContacts = new ArrayList<>();
-		fullContacts.add(new Contact(1, "Van Damme", "Jean claude", "aware@fullcircle.com", 'M', 56, true, "bob"));
+	/*	fullContacts.add(new Contact(1, "Van Damme", "Jean claude", "aware@fullcircle.com", 'M', 56, true, "bob"));
 		fullContacts.add(new Contact(2, "Genial", "Tortue", "strong@kamehouse.com", 'M', 150, false, "karin"));
 		fullContacts.add(new Contact(3, "Uzumaki", "naruto", "naruto@ramenforever.com", 'M', 15, false, "bob"));
 		fullContacts.add(new Contact(4, "Haruno", "Sakura", "sakura@sasukefanclub.com", 'F', 15, true, "tsunade"));
@@ -76,6 +89,8 @@ public class MainWindow extends JFrame implements ActionListener,
 		fullContacts.add(new Contact(7, "Matrix", "John", "commando@badass.com", 'M', 75, true, "karin"));
 		fullContacts.add(new Contact(8, "Anderson", "Thomas", "neo@gothic.com", 'M', 27, false, "morpheus"));
 		fullContacts.add(new Contact(9, "Li", "Jet", "dragon@fureur.com", 'M', 29, true, "morpheus"));
+		*/
+		
 		
 		// panel haut
 		panelHaut = new JPanel();
@@ -97,9 +112,15 @@ public class MainWindow extends JFrame implements ActionListener,
 		goldOnly.addActionListener(this);
 		panelHaut.add(goldOnly);
 		
+		btSave = new JButton("sauvegarder");
+		btLoad = new JButton("charger");
+		btSave.setActionCommand(SAVE_COMMAND);
+		btLoad.setActionCommand(LOAD_COMMAND);
+		btSave.addActionListener(this);
+		btLoad.addActionListener(this);
 		
-		
-		
+		panelHaut.add(btSave);
+		panelHaut.add(btLoad);
 		add(panelHaut, BorderLayout.NORTH);
 		
 		// panel centre
@@ -116,17 +137,10 @@ public class MainWindow extends JFrame implements ActionListener,
 		add(panelDroit, BorderLayout.EAST);
 	
 		// mise en place evenement, filtres, stream, etc
-		fullContacts.stream()
-					.map(c -> c.getReferent())
-					.distinct()
-					.forEach(s -> referentsVisibles.addElement(s));
-		referentsVisibles.addElement("tous");
+		//refreshReferents();
 		
-		
-		filtreReferent = c -> true;
-		filtreGold = c -> true;
-		filtreAge = c -> true;
-		triContact = (c1, c2) -> Integer.compare(c1.getId(), c2.getId());
+		initFilters();
+		loadContacts();
 		
 		affichageReferents.addListSelectionListener(this);
 		
@@ -135,6 +149,22 @@ public class MainWindow extends JFrame implements ActionListener,
 		choixTri.addActionListener(this);
 		
 		refreshFullContacts();
+	}
+
+	private void initFilters() {
+		filtreReferent = c -> true;
+		filtreGold = c -> true;
+		filtreAge = c -> true;
+		triContact = (c1, c2) -> Integer.compare(c1.getId(), c2.getId());
+	}
+
+	private void refreshReferents() {
+		referentsVisibles.clear();
+		fullContacts.stream()
+					.map(c -> c.getReferent())
+					.distinct()
+					.forEach(s -> referentsVisibles.addElement(s));
+		referentsVisibles.addElement("tous");
 	}
 	
 	private void refreshFullContacts() {
@@ -147,11 +177,63 @@ public class MainWindow extends JFrame implements ActionListener,
 					.forEach(c -> contactsVisibles.addElement(c));
 	}
 
+	private void saveContacts() {
+		File f = new File(CONTACT_FILENAME);
+		//final PrintWriter writer = null;
+		try {
+			PrintWriter writer = new PrintWriter(f);
+			/*for (Contact c : fullContacts) {
+				writer.println(c.toCSVLine());
+			}*/
+			fullContacts.stream().forEach(c -> writer.println(c.toCSVLine()));
+			writer.close();
+			JOptionPane.showMessageDialog(this, "sauvegarde faite", "success", JOptionPane.INFORMATION_MESSAGE);
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+			JOptionPane.showMessageDialog(this, "erreur a la sauvegarde", "erreur", JOptionPane.ERROR_MESSAGE);
+		} 
+		
+	}
+	
+	private void loadContacts() {
+		File f = new File(CONTACT_FILENAME);
+		fullContacts.clear();
+		try {
+			Scanner reader = new Scanner(f);
+			while(reader.hasNext()) {
+				String line = reader.nextLine();
+				fullContacts.add(Contact.loadFromCsv(line));
+			}
+			reader.close();
+			refreshFullContacts();
+			refreshReferents();
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+			JOptionPane.showMessageDialog(this,
+										 "pas de fichier contacts",
+										 "error",
+										 JOptionPane.ERROR_MESSAGE);
+		} catch (ContactFormatException e) {
+			JOptionPane.showMessageDialog(this,
+										  "probleme au chargement des contacts: " + e.getMessage(),
+										  "error",
+										  JOptionPane.ERROR_MESSAGE);
+		}
+		
+		
+	}
+	
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		filtreGold = Contact.getGoldFilter(goldOnly.isSelected());
-		triContact = Contact.getTri(choixTri.getSelectedItem().toString());
-		refreshFullContacts();
+		switch(e.getActionCommand()) {
+			case SAVE_COMMAND: saveContacts(); break;
+			case LOAD_COMMAND: loadContacts(); break;
+			default:
+				filtreGold = Contact.getGoldFilter(goldOnly.isSelected());
+				triContact = Contact.getTri(choixTri.getSelectedItem().toString());
+				refreshFullContacts();
+				break;
+		}
 	}
 
 	@Override
