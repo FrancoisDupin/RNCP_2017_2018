@@ -9,7 +9,7 @@ id							int
 nom							String
 prenom						String
 email						String
-genre (masculin/feminin)	int
+genre (masculin/feminin)	char
 age							int
 gold						boolean
 referent					String	(nom commercial)
