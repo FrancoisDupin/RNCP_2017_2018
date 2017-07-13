@@ -1,0 +1,23 @@
+exercice java 8
+--------------------
+ecrire une librairie java permettant
+de sauvegarder automatiquement un bean(objet) sous
+format CSV
+	CSVMagician.save(Objet) -> prop1;.....;prop3
+
+quelques chose a jouter
+	on gere les propriété:
+		String, int,double,char,boolean
+	on passe uniquement par des getter public
+
+deux annotation a ajouter
+	@IgnoreGetter  -> ne pas sauvegarder cette propriété
+	@BooleanConverter -> indique (pour les boolean) si
+	on ecris 0/1 ou false/true (bonus)
+	
+super bonus
+	ajouter la fonction
+	CSVMagician.load(Class, String) -> Objet
+	
+	@AddClassName (devant la classe)
+		--> il ajoute en premiere colonne le nom de la classe
