@@ -32,6 +32,7 @@ import javax.swing.event.DocumentListener;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 
+import beanCreator.BeanInstanciator;
 import exercice_java_7_form.metier.Contact;
 import exercice_java_7_form.metier.Contact.ContactFormatException;
 
@@ -41,6 +42,7 @@ public class MainWindow extends JFrame implements ActionListener,
 
 	public static final String SAVE_COMMAND = "sauver";
 	public static final String LOAD_COMMAND = "charger";
+	public static final String CREATE_COMMAND = "creer";
 	public static final String CONTACT_FILENAME = "contacts.csv";
 	
 	
@@ -67,6 +69,7 @@ public class MainWindow extends JFrame implements ActionListener,
 	private JComboBox<String> choixTri;
 	private JButton btSave;
 	private JButton btLoad;
+	private JButton btCreate;
 	
 	
 	
@@ -114,13 +117,17 @@ public class MainWindow extends JFrame implements ActionListener,
 		
 		btSave = new JButton("sauvegarder");
 		btLoad = new JButton("charger");
+		btCreate = new JButton("creer");
 		btSave.setActionCommand(SAVE_COMMAND);
 		btLoad.setActionCommand(LOAD_COMMAND);
+		btCreate.setActionCommand(CREATE_COMMAND);
 		btSave.addActionListener(this);
 		btLoad.addActionListener(this);
+		btCreate.addActionListener(this);
 		
 		panelHaut.add(btSave);
 		panelHaut.add(btLoad);
+		panelHaut.add(btCreate);
 		add(panelHaut, BorderLayout.NORTH);
 		
 		// panel centre
@@ -228,6 +235,11 @@ public class MainWindow extends JFrame implements ActionListener,
 		switch(e.getActionCommand()) {
 			case SAVE_COMMAND: saveContacts(); break;
 			case LOAD_COMMAND: loadContacts(); break;
+			case CREATE_COMMAND:
+				Contact newContact = (Contact)BeanInstanciator.createBean(Contact.class);
+				fullContacts.add(newContact);
+				refreshFullContacts();
+				break;
 			default:
 				filtreGold = Contact.getGoldFilter(goldOnly.isSelected());
 				triContact = Contact.getTri(choixTri.getSelectedItem().toString());
