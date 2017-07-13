@@ -237,6 +237,9 @@ public class MainWindow extends JFrame implements ActionListener,
 			case LOAD_COMMAND: loadContacts(); break;
 			case CREATE_COMMAND:
 				Contact newContact = (Contact)BeanInstanciator.createBean(Contact.class);
+				newContact.setId(fullContacts.stream()
+											 .mapToInt(c -> c.getId())
+											 .max().orElse(0) + 1);
 				fullContacts.add(newContact);
 				refreshFullContacts();
 				break;

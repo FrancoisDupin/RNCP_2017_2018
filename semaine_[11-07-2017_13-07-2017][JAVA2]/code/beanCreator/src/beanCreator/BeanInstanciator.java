@@ -9,6 +9,9 @@ import java.util.stream.Collectors;
 
 import javax.swing.JOptionPane;
 
+import beanCreator.annotations.IgnoreSetter;
+import beanCreator.annotations.MessageSaisie;
+
 public class BeanInstanciator {
 	
 	public static Object  createBean(Class beanClass) {
@@ -50,31 +53,44 @@ public class BeanInstanciator {
 	private static void fillBean(Object bean, List<Method> setters) {
 		try {
 			for (Method setter : setters) {
+				if (setter.isAnnotationPresent(IgnoreSetter.class)) {
+					continue;
+				}
 				// le nom de la propriété
 				String propName = setter.getName().substring(3);
 				// le type de la propriété a setter
 				Class typeArgument = setter.getParameterTypes()[0];
+				// le message de saisie par defaut
+				 MessageSaisie msg = setter.getAnnotation(MessageSaisie.class);
+				 String message = "";
+				 if (msg == null) {
+					 message = "saisissez " + propName;
+				 }
+				 else {
+					 message = msg.message();
+				 }
+				
 				if (typeArgument.equals(String.class)) {
 					String saisie = JOptionPane.showInputDialog(
-							"saisissez " + propName + " (Chaine de caractere)");
+							message + " (Chaine de caractere)");
 						// on appele le setter sur le bean avec la saisie en parametre
 						setter.invoke(bean, saisie);
 				}
 				else if (typeArgument.equals(int.class)) {
 					int saisie = Integer.parseInt(JOptionPane.showInputDialog(
-							"saisissez " + propName + " (Entier)"));
+							message + " (Entier)"));
 						// on appele le setter sur le bean avec la saisie en parametre
 						setter.invoke(bean, saisie);
 				}
 				else if (typeArgument.equals(double.class)) {
 					double saisie = Double.parseDouble(JOptionPane.showInputDialog(
-							"saisissez " + propName + " (Double)"));
+							message + " (Double)"));
 						// on appele le setter sur le bean avec la saisie en parametre
 						setter.invoke(bean, saisie);
 				}
 				else if (typeArgument.equals(boolean.class)) {
 					boolean saisie = Boolean.parseBoolean(JOptionPane.showInputDialog(
-							"saisissez " + propName + " (Boolean)"));
+							message + " (Boolean)"));
 						// on appele le setter sur le bean avec la saisie en parametre
 						setter.invoke(bean, saisie);
 				}

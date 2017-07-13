@@ -3,6 +3,9 @@ package exercice_java_7_form.metier;
 import java.util.Comparator;
 import java.util.function.Predicate;
 
+import beanCreator.annotations.IgnoreSetter;
+import beanCreator.annotations.MessageSaisie;
+
 public class Contact {
 	public static final String TRI_ID = "id";
 	public static final String TRI_NOM = "nom";
@@ -21,16 +24,24 @@ public class Contact {
 	private String referent;
 	
 	public int getId() {return id;}
+	
+	@IgnoreSetter 
 	public void setId(int id) {this.id = id;}
 	public String getNom() {return nom;}
+
+	@MessageSaisie(message="le nom du contact")
 	public void setNom(String nom) {this.nom = nom;}
 	public String getPrenom() {return prenom;}
+
+	@MessageSaisie(message="le prenom du contact")
 	public void setPrenom(String prenom) {this.prenom = prenom;}
 	public String getEmail() {return email;}
 	public void setEmail(String email) {this.email = email;}
 	public char getGenre() {return genre;}
 	public void setGenre(char genre) {this.genre = genre;}
 	public int getAge() {return age;}
+	
+	@MessageSaisie(message="l'age du contact entre 0 et 200 ans")
 	public void setAge(int age) {this.age = age;}
 	public boolean isClientGold() {return clientGold;}
 	public void setClientGold(boolean clientGold) {this.clientGold = clientGold;}
