@@ -33,6 +33,7 @@ import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 
 import beanCreator.BeanInstanciator;
+import csvMagician.CsvMagician;
 import exercice_java_7_form.metier.Contact;
 import exercice_java_7_form.metier.Contact.ContactFormatException;
 
@@ -192,7 +193,7 @@ public class MainWindow extends JFrame implements ActionListener,
 			/*for (Contact c : fullContacts) {
 				writer.println(c.toCSVLine());
 			}*/
-			fullContacts.stream().forEach(c -> writer.println(c.toCSVLine()));
+			fullContacts.stream().forEach(c -> writer.println(CsvMagician.beanToCsv(c)));
 			writer.close();
 			JOptionPane.showMessageDialog(this, "sauvegarde faite", "success", JOptionPane.INFORMATION_MESSAGE);
 		} catch (FileNotFoundException e) {

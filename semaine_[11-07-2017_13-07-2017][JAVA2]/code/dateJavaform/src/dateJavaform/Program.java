@@ -77,6 +77,14 @@ public class Program {
 		dr2 = dr2.multipliedBy(15);
 		System.out.println("dr2 = " + dr2);
 		
+		
+		LocalDate ld4 = dt2.toLocalDate();
+		LocalTime lt4 = dt2.toLocalTime();
+		System.out.println(ld4);
+		System.out.println(lt4);
+		
+		// ca gere les dates avant 1er janvier 1970
+		
 	}
 
 }

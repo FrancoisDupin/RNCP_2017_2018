@@ -37,6 +37,7 @@ public class Contact {
 	public void setPrenom(String prenom) {this.prenom = prenom;}
 	public String getEmail() {return email;}
 	public void setEmail(String email) {this.email = email;}
+	
 	public char getGenre() {return genre;}
 	public void setGenre(char genre) {this.genre = genre;}
 	public int getAge() {return age;}
@@ -68,7 +69,7 @@ public class Contact {
 				+ ", age=" + age + ", clientGold=" + clientGold + ", referent=" + referent + "]";
 	}
 
-	public String toCSVLine() {
+	/*public String toCSVLine() {
 		StringBuilder sb = new StringBuilder();
 		sb.append(getClass().getSimpleName()).append(';')
 		  .append(getId()).append(';')
@@ -81,7 +82,7 @@ public class Contact {
 		  .append(getReferent());
 
 		return sb.toString();
-	}
+	}*/
 	
 	public static class ContactFormatException extends RuntimeException {
 
