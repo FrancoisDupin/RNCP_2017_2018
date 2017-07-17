@@ -1,0 +1,34 @@
+exercice javaee 1
+------------------------
+ecrire une petite application qui va lire
+dans son fichier de configuration une liste
+de répertoire (fichier) a surveiller
+ -> lancement d'un thread par repertoire a surveiller
+ -> indiquer quand un fichier apparait ou disparait
+ -> frequence de surveillance, toute les 5 secondes
+ 
+1) afficher directement dans la console les evenements
+
+2) ecrire une classe repertoireEvents qui centralisera
+les evenements en provenance des different repertoire
+surveiller
+	addEvent(fichier apparu, disparu, etc...., Daté)
+	quand on finit le programme (utilisateur appuis sur entree)
+	on arrette proprement les thread
+	et le repertoireEvents ecrit le journal des evenements
+	dans un fichier texte en sortie
+	
+Program
+	RepertoireEvents
+		Spy1 --> rep1
+		Spy2 --> rep2
+		...
+	
+	Spy1 ---> message(nouveau fichier, etc) --> RepertoireEvents
+	
+	RepertoireEvents.finish()
+		-> arreter les thread proprement
+		-> ecris tous les evenment daté dans un fichier file.log
+		
+		
+	
