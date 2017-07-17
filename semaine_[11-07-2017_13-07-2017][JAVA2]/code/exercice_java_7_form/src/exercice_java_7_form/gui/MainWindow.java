@@ -35,7 +35,7 @@ import javax.swing.event.ListSelectionListener;
 import beanCreator.BeanInstanciator;
 import csvMagician.CsvMagician;
 import exercice_java_7_form.metier.Contact;
-import exercice_java_7_form.metier.Contact.ContactFormatException;
+//import exercice_java_7_form.metier.Contact.ContactFormatException;
 
 public class MainWindow extends JFrame implements ActionListener,
 												  ListSelectionListener,
@@ -210,7 +210,7 @@ public class MainWindow extends JFrame implements ActionListener,
 			Scanner reader = new Scanner(f);
 			while(reader.hasNext()) {
 				String line = reader.nextLine();
-				fullContacts.add(Contact.loadFromCsv(line));
+				fullContacts.add((Contact)CsvMagician.CsvToBean(line, Contact.class));
 			}
 			reader.close();
 			refreshFullContacts();
@@ -221,7 +221,7 @@ public class MainWindow extends JFrame implements ActionListener,
 										 "pas de fichier contacts",
 										 "error",
 										 JOptionPane.ERROR_MESSAGE);
-		} catch (ContactFormatException e) {
+		} catch (Exception e) {
 			JOptionPane.showMessageDialog(this,
 										  "probleme au chargement des contacts: " + e.getMessage(),
 										  "error",

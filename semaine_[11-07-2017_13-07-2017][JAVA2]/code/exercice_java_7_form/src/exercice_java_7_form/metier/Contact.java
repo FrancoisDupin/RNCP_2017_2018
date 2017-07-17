@@ -5,6 +5,8 @@ import java.util.function.Predicate;
 
 import beanCreator.annotations.IgnoreSetter;
 import beanCreator.annotations.MessageSaisie;
+import csvMagician.annotations.BooleanConverter;
+import csvMagician.annotations.IgnoreGetter;
 
 public class Contact {
 	public static final String TRI_ID = "id";
@@ -38,14 +40,20 @@ public class Contact {
 	public String getEmail() {return email;}
 	public void setEmail(String email) {this.email = email;}
 	
+	//@IgnoreGetter
 	public char getGenre() {return genre;}
+	//@csvMagician.annotations.IgnoreSetter
 	public void setGenre(char genre) {this.genre = genre;}
 	public int getAge() {return age;}
 	
 	@MessageSaisie(message="l'age du contact entre 0 et 200 ans")
 	public void setAge(int age) {this.age = age;}
+	
+	@BooleanConverter(trueValue="1", falseValue="0")
 	public boolean isClientGold() {return clientGold;}
+	@BooleanConverter(trueValue="1", falseValue="0")
 	public void setClientGold(boolean clientGold) {this.clientGold = clientGold;}
+	
 	public String getReferent() {return referent;}
 	public void setReferent(String referent) {this.referent = referent;}
 	
@@ -83,7 +91,7 @@ public class Contact {
 
 		return sb.toString();
 	}*/
-	
+	/*
 	public static class ContactFormatException extends RuntimeException {
 
 		public ContactFormatException(String message) {
@@ -115,7 +123,7 @@ public class Contact {
 			throw new ContactFormatException("format d'un champ du contact invalide", ex);
 		}
 	}
-	
+	*/
 	
 	public static Comparator<Contact> getTri(String champ) {
 		switch(champ) {

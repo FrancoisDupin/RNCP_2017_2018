@@ -1,10 +1,10 @@
-Contact;56;true;aware@fullcircle.com;M;1;Van Damme;Jean claude;bob
-Contact;150;false;strong@kamehouse.com;M;2;Genial;Tortue;karin
-Contact;15;false;naruto@ramenforever.com;M;3;Uzumaki;naruto;bob
-Contact;15;true;sakura@sasukefanclub.com;F;4;Haruno;Sakura;tsunade
-Contact;35;true;fighter@china.com;F;5;Li;Chun;tsunade
-Contact;40;false;atatatatata@punch.com;M;6;kenshiro;ken;bob
-Contact;75;true;commando@badass.com;M;7;Matrix;John;karin
-Contact;27;false;neo@gothic.com;M;8;Anderson;Thomas;morpheus
-Contact;29;true;dragon@fureur.com;M;9;Li;Jet;morpheus
-Contact;40;false;vincent@courtalon.com;M;10;Courtalon;Vincent;cristophe
+Contact;56;1;aware@fullcircle.com;M;1;Van Damme;Jean claude;bob
+Contact;150;0;strong@kamehouse.com;M;2;Genial;Tortue;karin
+Contact;15;0;naruto@ramenforever.com;M;3;Uzumaki;naruto;bob
+Contact;15;1;sakura@sasukefanclub.com;F;4;Haruno;Sakura;tsunade
+Contact;35;1;fighter@china.com;F;5;Li;Chun;tsunade
+Contact;40;0;atatatatata@punch.com;M;6;kenshiro;ken;bob
+Contact;75;1;commando@badass.com;M;7;Matrix;John;karin
+Contact;27;0;neo@gothic.com;M;8;Anderson;Thomas;morpheus
+Contact;29;1;dragon@fureur.com;M;9;Li;Jet;morpheus
+Contact;40;0;vincent@courtalon.com;M;10;Courtalon;Vincent;cristophe
