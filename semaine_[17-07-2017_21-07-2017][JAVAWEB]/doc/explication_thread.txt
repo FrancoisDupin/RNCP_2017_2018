@@ -50,7 +50,22 @@ exemple typique:
 	sur un ensemble de worker thread (une requette par travailleur)
 	
 	
+pour les verrous / sections critiques (synchronized)
+	- code synchronisé doit etre le plus  court possible
+	- si possible, eviter d'acquerir plusieurs verrou en
+	même temps
 	
+si vous travaillez sur des types basiques (valeur)
+	long, int, double....
+	en multithread
+		-> variante Atomic: AtomicLong, AtomicInt....
+	ces variantes fournissent des methodes de manipulation
+	garantie Thread safe et efficace (plus qu'un synchronized)
+	
+		
+		
+
+
 	
 	
 	
