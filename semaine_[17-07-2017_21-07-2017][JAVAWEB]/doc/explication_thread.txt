@@ -1,0 +1,77 @@
+programmation multi-thread
+-------------------------------
+
+sur les machines modernes, plusieurs execution peuvent prendre
+place en même temps
+	-> soit physiquement, car il y a plusieurs core/processeur
+	-> soit en "timeshare", on partage le temps d'un processeur
+	entre plusieurs programme
+	
+avec les anciennes architecture, plutot du timeshare, donc
+pas de problemes de performance lié au parallelisme
+	-> si vous avez un seul "processus/execution" qui s'execute
+	sur la machine, vous consommez 100% du processeur
+
+sur les machines récente, ce n'est pas le cas, vous avez souvent
+au moins 4 coeur d'execution
+	equivalent a quatre processeur en parallele
+	-> si vous avez un seul "processus/execution" qui s'execute
+	sur la machine, vous n'exploitez au maximum que 25% de la puissance
+	de la machine
+
+Thread et processus/application
+différence entre processus/tache et Thread
+le systeme d'exploitation peut faire tourner plusieurs
+application en même temps. pour des raisons de stabilité et sécurité
+, chaque application doit être isolé des autres
+
+le systeme d'exploitation isole l'espace mémoire entre chaque application
+chaque application a son propre espace mémoire, invisible et
+indépendant des autres
+probleme:
+	si vous avez besoin de répartir du travail sur plusieurs coeurs
+	d'execution, tout en travaillant sur les même données partagée
+	cela devient très inneficace si l'on a pas d'espace memoire
+	partagé
+	on veut pouvoir avoir plusieurs executions simultannée (multi-coeur)
+	pour la même application dans le même espace mémoire
+
+les thread, c'est cela, c'est un processus sans separation de l'espace
+mémoire
+si un des thrad plante, en général, l'application plante avec
+
+exemple typique:
+	- une application type photoshop va utiliser du multi-thread
+	pour accélerer les traitement sur les images, ainsi que pour
+	son interface
+	- une application multimedia/jeux va repartir les types de travaux
+	sur différent thread (affichage, son, logique, etc....)
+	- un serveur web va repartir le traitement de requette HTTP
+	sur un ensemble de worker thread (une requette par travailleur)
+	
+	
+	
+	
+	
+	
+	
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+	
+	
