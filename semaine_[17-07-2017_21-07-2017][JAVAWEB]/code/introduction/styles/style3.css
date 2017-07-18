@@ -1,0 +1,29 @@
+div.boite {
+    border: 2px solid black;
+    background-color: lightgray;
+    width: 300px;
+}
+div#bt1 {
+    background-color: palegreen;
+    position: relative;
+    float: left;
+}
+div#bt2 {
+    background-color: pink;
+    position: relative;
+    float: left;
+}
+div#bt3 {
+    background-color: aquamarine;
+    position: relative;
+    float: left;
+}
+div#bt4 {
+    background-color: chocolate;
+}
+div#bt5 {
+    background-color: chartreuse;
+}
+div#section {
+    border: 5px dashed red;
+}

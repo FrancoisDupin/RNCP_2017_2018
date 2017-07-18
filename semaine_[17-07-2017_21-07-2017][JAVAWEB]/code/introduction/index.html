@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>ma premiere page</title>
+    </head>
+    <body>
+        <!-- les titres en html -->
+        <h1>grand titre</h1>
+        <h2>bienvenue</h2>  
+        <h6>titre minuscule</h6>
+        <!-- les paragraphes -->
+        <!-- les passages a la ligne dans le code ne sont
+        pas repercuté a l'affichage
+        utiliser <br /> ou <br> pour ca 
+        les espaces sont "reduit" a un seul s'il y en a plusieur -->
+        <p>
+            je suis un paragraphe
+            un autre ligne <br />
+            avec un saut        de ligne
+        </p>
+        <!-- un div représente une "boite" stylable en html  -->
+        <div>
+            je suis une boite div
+        </div>
+        <!-- la balise a permet d'inserer un lien vers une autre url/page  -->
+        <!-- l'url du lien: si elle commence par http(s):// , c'est un lien absolu
+             si elle commence par ../index2.html : c'est un lien relatif a l'endroit ou on est 
+             si elle commence par /toto.html : c'est un lien relatif au serveur web
+             (sauf dans ce dernier cas si on utilise la balise base) -->
+        <a href="http://www.google.com">un lien vers google</a>
+        <a href="http://www.lemonde.fr">le monde</a>
+        <!-- les balises peuvent en gros etre categorisée en 2 grandes categories,
+         les balise inline (comme a) qui ne provoque pas de retour a la ligne, en gros
+        elle n'on pas leur propre cadre/boite, et les balise block (div, p, hx) qui provoque un 
+        retour a la ligne et on leur propre cadre
+        attention, c'est altérable via des feuilles de style -->
+        <p>
+            du texte <b>gras</b> ou <strong>gras aussi</strong> <br />
+            du texte <i>en italique</i> on peu combiner <b><i>les deux</i></b>
+            <!-- ceci étant, a part la balise strong, il est plutot conseiller
+             d'utiliser maintenant les balises span avec un style -->
+             <br />
+            encore du texte <span style="color:chocolate"> dans un span </span> juste avant
+        </p>
+        <!-- unordered list  (non numérotée) -->
+        <ul>
+            <!-- list item -->
+            <li>poulet basquaise</li>
+            <li>saumon</li>
+            <ul>
+                <li>saumon a la marseillaise</li>
+                <li>saumon a l'ecossaise</li>
+            </ul>
+            <li>couscous de lama</li>
+            <li>salade piemontaise</li>
+        </ul>
+        <!-- variante numérotée par le navigateur (peu utilisé maintenant)-->
+        <ol>
+            <li>poulet basquaise</li>
+            <li>saumon</li>
+            <ol>
+                <li>saumon a la marseillaise</li>
+                <li>saumon a l'ecossaise</li>
+            </ol>
+            <li>couscous de lama</li>
+            <li>salade piemontaise</li>
+        </ol>
+        <!--  tr : table row
+              th : table head (titre de colonne)
+              td : table data (contenu d'une cellule de la table)
+        -->
+        <table border="1">
+            <thead>
+                <tr><th>Pays</th><th>capital</th><th>population</th></tr>
+            </thead>
+            <tbody>
+                <tr><td>France</td><td>Paris</td><td>70 000 000</td></tr>
+                <tr><td>Espagne</td><td>Madrid</td><td>46 000 000</td></tr>
+                <tr><td>Islande</td><td>Reykjavik</td><td>331 000</td></tr>
+                <tr><td colspan="2">Monaco</td><td rowspan="2">37 000</td></tr>
+                <tr><td>Luxembourg</td><td>luxembourg</td></tr>
+            </tbody>
+        </table>
+        
+    </body>
+</html>

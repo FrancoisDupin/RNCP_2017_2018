@@ -1,0 +1,42 @@
+div.boite {
+    border: 2px solid black;
+    background-color: lightgray;
+    width: 300px;
+}
+div#bt1 {
+    background-color: palegreen;
+}
+/* position relative permet de deplacer un element par rapport
+   a son positionnement par defaut
+   
+   attention, les autres elements font "comme si" l'element
+   repositionné n'avait pas bougé
+   */
+div#bt2 {
+    background-color: pink;
+    position: relative;
+    top: 50px;
+    left: 120px;
+}
+/*
+    en position absolute, l'element est positionné par rapport
+    a la page elle-meme
+    de plus, l'element n'est plus pris en compte pour le positionnement
+    des autres (ici, le div plus bas remonte)
+*/
+div#bt3 {
+    background-color: aquamarine;
+    position: absolute;
+    top: 100px;
+    left: 350px;
+    z-index: -100;
+}
+div#bt4 {
+    background-color: chocolate;
+}
+div#bt5 {
+    background-color: chartreuse;
+    position: fixed;
+    top: 10px;
+    right: 30px;
+}

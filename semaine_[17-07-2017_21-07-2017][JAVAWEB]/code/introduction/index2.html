@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>les formulaires</title>
+        <meta charset="UTF-8" />
+    </head>
+    <body>
+        <!-- les formulaires html
+        permettent la transmission d'information au serveur
+        par exemple, choisir un produit, passer une commande
+        remplir des informations de contact, etc...  -->
+        <!--
+             method : comment on transmet les données 
+             action : vers quel url on transmet les données
+
+             methode GET est la plus basique, les données
+             sont encodée dans l'url de la requette http
+             methode POST est plus élaborée, les données
+             sont encodée dans l'en-tete/corps de la requette http
+
+             page(form)
+                soumet ==========> HTTP ====> serveur
+                                                |
+                html <=============  HTTP <=====+
+        -->
+        <form method="GET" action="index2.html" >
+            <!-- un formulaire peut contenir divers champs  -->
+            <label for="email">votre email</label>
+            <!-- label est associé a un champ via l'attribut for  -->
+            <input type="text" name="email" id="email" />
+            <br />
+
+            <label for="spamok">voulez vous recevoir nos offres</label>
+            <!-- bouton pour soumettre le formulaire  -->
+            <input type="checkbox" name="spamok" id="spamok" checked />
+            <br />
+            <label for="commentaire">avez vous des commentaires</label>
+            <textarea name="commentaire" id="commentaire" rows="5" cols="40"></textarea>
+            <br />
+            <label for="choixVille">votre r&eacute;sidence</label>
+            <select name="choixVille" id="choixVille">
+                <option value="1" selected>Paris</option>
+                <option value="2">Toulouse</option>
+                <option value="3">Bruxelle</option>
+                <option value="4">Clermont-ferrand</option>
+                <option value="5">Montauban</option>
+            </select>
+            <br />
+            <label for="naissance">votre date de naissance</label>
+            <input type="date" name="naissance" id="naissance" />
+            <br />
+            <label for="couleur">votre couleur préférée</label>
+            <input type="color" name="couleur" id="couleur" />
+            <br />
+            <label for="age">votre age</label>
+            <input type="number" name="age" id="age" />
+            <br />
+            <input type="hidden" name="cache" id="cache" value="42" />
+            
+            <input type="submit" value="envoyer" />
+        </form>
+        <p>
+            &agrave; ça ôoo
+            a&lt;b&gt;c <br />
+            &amp; &apos; &quot;
+        </p>
+
+    </body>
+</html>

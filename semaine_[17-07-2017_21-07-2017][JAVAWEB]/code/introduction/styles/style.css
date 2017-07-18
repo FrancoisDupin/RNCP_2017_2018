@@ -1,0 +1,36 @@
+/*
+    pour declarer nos style
+    selecteur {
+        styles...
+    }
+*/
+
+/* ce selecteur vide les balises div de classe(.) boite*/
+div.boite {
+    border: 1px solid black;
+    background-color: darkgrey;
+    width: 80%;
+}
+
+/* ce selecteur vide la balise div d'identifiant(#) bt1*/
+div#bt1 {
+    background-color: pink;
+}
+
+/* ce selecteur vide la balise div d'identifiant(#) bt1*/
+div#bt2 {
+    background-color: cadetblue;
+}
+/* appliquer au span descendant de la balise div bt2 */
+div#bt2 span {
+    font-weight: bolder;
+}
+
+.warning {
+    color: red;
+}
+/* pseudo classe pour le survol , s'applique ici si l'element est survolé */
+div:hover {
+    border-style: dashed;
+    border-width: 5px;
+}
