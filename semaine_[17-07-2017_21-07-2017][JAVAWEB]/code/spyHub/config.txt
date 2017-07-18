@@ -1,0 +1,3 @@
+testdirs\rep1
+testdirs\rep2
+testdirs\rep3

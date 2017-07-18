@@ -1,0 +1,6 @@
+SpyEvent [source=testdirs\rep1, message=nouveau fichier : hello - Copie - Copie.txt, date=2017-07-18T10:41:27.606]
+SpyEvent [source=testdirs\rep3, message=nouveau fichier : hello - Copie.txt, date=2017-07-18T10:41:37.607]
+SpyEvent [source=testdirs\rep3, message=nouveau fichier : hello_1.txt, date=2017-07-18T10:41:47.617]
+SpyEvent [source=testdirs\rep3, message=fichier disparu : hello - Copie.txt, date=2017-07-18T10:41:47.617]
+SpyEvent [source=testdirs\rep2, message=nouveau fichier : hello_1.txt, date=2017-07-18T10:41:57.628]
+SpyEvent [source=testdirs\rep1, message=nouveau fichier : hello_1.txt, date=2017-07-18T10:42:12.658]
