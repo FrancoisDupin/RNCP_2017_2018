@@ -1,0 +1,39 @@
+exercice web 1A
+---------------
+ecrire une petite application web avec un formulaire
+permettant de donner le resultat d'un calcul (servlet/jsp)
+2 champ pour les deux operandes
+1 champ combobox pour l'operateur (multiplication, division, addition...)
+soumet
+ page qui affiche l'operation effectuée et le resultat
+ + un lien pour revenir sur le formulaire
+ 
+ gerer une page affichant une erreur en cas de saisie invalide
+ par exemple: division par 0
+
+exercice web 1B
+----------------
+un formulaire permettant de choisir un type de figure
+et une taille
+	(triangle, carre)
+-> affichage de la figure en texte
+ ******
+ *---*
+ *--*
+ *-*
+ **
+ *
+ 
+ bonus: choisir la couleur du bord et centre dans le formulaire
+ et mettre le style correct en place dans la page
+ 
+ exercice web 1C
+ ---------------
+ choisir une date (1 mois/annee)
+	--> afficher le calendrier en html
+	avec deux boutons/ou lien 
+	pour afficher le mois précédent ou suivant
+	
+
+ 
+ 
