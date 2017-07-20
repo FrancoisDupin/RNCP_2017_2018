@@ -1,0 +1,84 @@
+introduction SQL
+----------------------
+base de donnée SQL
+
+des base de donnees
+	+--> Tables
+			+----> colonnes
+			+----> lignes(enregistrements)
+	- Tables peuvent etre liée via des relations
+	- base de donnée relationelle
+	
+structure d'une ligne dans une table est fixe
+	on détermine a la creation de la table sa structure
+	via declaration de ses colonnes
+	toutes les lignes d'une table on le même nombre
+	de colonnes
+	
+en général, chaque table a au moins une clé primaire
+	-> identifiant unique d'une certaine ligne de cette table
+	
+	nos colonnes peuvent etre d'un certain type
+		-> chaine de caractere (varchar/char...)
+		-> nombre (int, longint, double, etc..)
+		-> Date (date, time, datetime, timestamp....)
+		-> boolean (tinyint)
+		-> blob (binary large object)
+	types specialisé possible (financier, geolocalisation)
+
+SQL
+	-> DDL -> data declaration langage
+	-> DML -> data manipulation langage 
+	-> droit access/administration
+	
+-----------------------------------------
+les principales base sql
+	- mysql/mariadb
+	- oracle
+	- sqlserver
+	- postgresql
+
+le langage SQL est standardisé
+	cependant, la norme n'est pas toujours exactement
+	suivit par les base de données
+	mysql/postgres/sqlserver fournisse colonne autoincremente
+	oracle non
+	mysql ne fournis pas de "sequence"
+	sensibilité a la casse différente suivant les bases
+	
+base du langage SQL
+	CRUD, create read update delete
+		insert
+		select
+		update
+		delete
+		
+
+	requette d'insertion
+		INSERT INTO `tbaleName`
+		(`col1`, `col2`, ...)
+		VALUES
+		(vlaue1, value2, ...);
+		
+		
+	selection
+		SELECT * FROM `client`;
+		SELECT `col1`, `col2`,... FROM `client`;
+		
+	SELECT `nom`,`email` FROM `client` WHERE solde > 200;
+	
+	mise a jour de ligne existante dans la base
+	UPDATE `tableName` 
+		SET `col1` = val1,`col2` = val2, ...
+		WHERE condition;
+		
+	
+	UPDATE `client` SET `solde` = '170' WHERE `client`.`id` = 1;
+	
+	UPDATE `client` SET `solde` = `solde` * 1.1
+			WHERE `client`.`solde` > 100
+	
+	effacement
+	
+	DELETE FROM `client` WHERE `client`.`id` = 1 
+	
