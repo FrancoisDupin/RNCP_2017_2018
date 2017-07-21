@@ -1,0 +1,22 @@
+ecrire un application web (avec base de donnée mysql)
+permettant d'editer/gérer une TodoList
+	Tache:
+		id				: int (cle primaire)
+		description		: String
+		priorite		: int (1-5)
+		contexte		: String (maison, bureau, etc....)
+		finished		: boolean
+(bonus) dateCreation	: Date  (indice, attention entre java.sql.Date et java.util.Date)
+
+creer, editer, effacer une tache, terminer une tache
+
+****** 	bonus  ********
+lister les taches: choix du tri -> par priorite, par description
+					indice (on peut utiliser ORDER BY dans la requette)
+					ou sinon, tri via stream a posteriori
+				   filter les taches par contexte	
+						on clique sur un contexte, lister
+						uniquement les taches de meme contexte
+						
+			
+
