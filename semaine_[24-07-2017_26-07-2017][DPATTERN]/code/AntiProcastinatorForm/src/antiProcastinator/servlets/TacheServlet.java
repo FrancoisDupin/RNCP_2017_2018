@@ -38,9 +38,19 @@ public class TacheServlet extends HttpServlet {
 
 
 
-
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session = request.getSession();
+
+		if (request.getParameter("clearFilterAndTri") != null) {
+			System.out.println("effacement tri et filtre");
+			session.removeAttribute("tri");
+			session.removeAttribute("filtre");
+		}
+		/*
+		 * 
+		 * gestion du tri
+		 * 
+		 */
 		TypeTri tri = TypeTri.AUCUN;
 		// recuperer le tri mémorisé s'il existe
 		if (session.getAttribute("tri") == null) {
@@ -55,10 +65,29 @@ public class TacheServlet extends HttpServlet {
 		if (request.getParameter("tri") != null)
 			tri = TypeTri.valueOf(request.getParameter("tri"));
 		
-		// on memorise le tri choisi pour la prochaine fois
 		session.setAttribute("tri", tri);
+		/*
+		 * 
+		 * gestion du filtre 
+		 * 
+		 */
+		String filtre = null;
+		// recuperer le tri mémorisé s'il existe
+		if (session.getAttribute("filtre") == null) {
+			System.out.println("pas de recuperation filtre dans session");
+			session.setAttribute("filtre", null);
+		}
+		else {
+			System.out.println("recuperation filtre dans session");
+			filtre = (String)session.getAttribute("filtre");
+		}
+		// priorite a un nouveau choix de filtre s'il y en a un
+		if (request.getParameter("filtre") != null)
+			filtre = request.getParameter("filtre");
+
+		// on memorise le filtre choisi pour la prochaine fois
+		session.setAttribute("filtre", filtre);
 		
-		String filtre = request.getParameter("filtre");
 		
 		request.setAttribute("taches", tacheDAO.findAll(tri, filtre));
 		getServletContext().getRequestDispatcher("/vues/taches/liste.jsp")

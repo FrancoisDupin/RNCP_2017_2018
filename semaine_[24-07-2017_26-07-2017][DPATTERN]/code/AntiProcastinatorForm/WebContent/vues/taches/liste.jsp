@@ -13,6 +13,17 @@
 <body>
 	<div class="container">
 		<h2>DO IT!!!</h2>
+		<span class="label label-info">
+			tri: <c:out value="${tri}" />
+		</span>
+		<br />
+		<c:if test="${filtre != null}" >
+			<span class="label label-info">
+				filtre: <c:out value="${filtre}" />
+			</span>
+		</c:if>
+		<br />
+		<a href="Tache?clearFilterAndTri=true" class="btn btn-default btn-xs">enlever filtre et tri</a>		
 		<table class="table table-stripped">
 			<thead>
 				<tr>
