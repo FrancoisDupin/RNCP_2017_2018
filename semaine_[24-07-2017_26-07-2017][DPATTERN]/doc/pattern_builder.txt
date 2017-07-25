@@ -1,0 +1,10 @@
+design pattern Builder
+
+	- un objet complexe a construire
+	- avec de multiples parametres, potentiellement
+	optionels
+	- l'ordre de construction peut avoir un impact
+	.....
+	
+	Computer(cpu, ram, cg, hdd, dvd, clavier, etc....)
+	
