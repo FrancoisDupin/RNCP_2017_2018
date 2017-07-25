@@ -73,6 +73,12 @@ public class Computer {
 		}
 		
 		public Computer build() {
+			if (this.buildCarteReseau.equals("none") 
+					&& !this.buildClavier
+					&& !this.buildSouris
+					&& this.buildEcran.equals("none")) {
+				throw new IllegalStateException("cet ordinateur sert a rien!");
+			}
 			Computer c = new Computer(buildCpu, buildRamSizeGo);
 			c.carteReseau = this.buildCarteReseau;
 			c.clavier = this.buildClavier;
