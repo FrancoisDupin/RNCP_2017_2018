@@ -1,0 +1,32 @@
+
+http get 'Tache'
+	-> doget (TacheServlet)
+		-> (session(filtre:aucun, tri:aucun)
+			(request(filte:aucun, tri:aucun)
+		-> findAll simple  -> tacheDAO
+html <- liste des taches
+
+http get 'Tache?filtre=maison'
+	-> doget (TacheServlet)
+		-> (session(filtre:aucun, tri:aucun)
+			(request(filtre:maison, tri:aucun)
+		maj -> (session(filtre:maison, tri:aucun)
+		-> findAll(filtre:maison)  -> tacheDAO
+html <- liste des taches
+
+http get 'Tache?tri=PRIORITE'
+	-> doget (TacheServlet)
+		-> (session(filtre:maison, tri:aucun)
+			(request(filtre:aucun, tri:PRIORITE)
+		maj -> (session(filtre:maison, tri:PRIORITE)
+		-> findAll(filtre:maison, tri:PRIORITE)  -> tacheDAO
+html <- liste des taches
+
+http get 'Tache?clearFiltreAndTri'
+	-> doget (TacheServlet)
+		-> (session(filtre:maison, tri:PRIORITE)
+			(request(filtre:aucun, tri:aucun, clear:true)
+		maj -> (session(filtre:aucun, tri:aucun)
+		-> findAll()  -> tacheDAO
+html <- liste des taches
+
